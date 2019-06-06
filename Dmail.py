@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-import imaplib, email, os, datetime
-
+import imaplib, email, os, datetime, idlelib, time
 user = "m2dkcorreo@gmail.com"    #User name del correo al que queremos acceder
 password = "12345678abcde"       #Contrasena del correo al que queremos acceder
 imap_url = "imap.gmail.com"      #Algo que no se muy bien como funciona
@@ -10,6 +9,8 @@ connection = imaplib.IMAP4_SSL(imap_url)        #Conexion de tipo IMAP4 que prov
 connection.login(user,password)                 #Conexion que toma como parametros el user creado anteriormente y la contrasena del correo
 connection.list()
 connection.select("INBOX")
+
+
                                                 #print(connection.select('INBOX'))#Print para saber si me estoy conectando
 #Esta funcion obtiene el cuerpo del mensaje, filtrando un poco de la informacion que obtiene la data completa
 def get_body(msg):
